@@ -6,7 +6,7 @@ var options = {
   useUnifiedTopology: true
  };
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.u2frg.mongodb.net/MyTVShows?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${process.env.LOGIN}:${process.env.PASSWORD}@${process.env.CLUSTER}?retryWrites=true&w=majority`,
 
    options,
    function(err) {
