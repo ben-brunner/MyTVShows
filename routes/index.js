@@ -9,11 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'MyTVShowsBackend' });
 });
 
-
 // Get popular shows from TheMovieDatabase API
 router.get('/new-series', async (req, res) => {
 
-  const data = await request("GET", "https://api.themoviedb.org/3/discover/tv?api_key=e3ff0e103d4d010e85c50c662e6f1e89&sort_by=popularity.desc");
+  const data = await request("GET", `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&sort_by=popularity.desc`);
   const response = JSON.parse(data.body);
 
   res.json({ result: response.results });
